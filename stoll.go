@@ -31,8 +31,10 @@ func onMessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		}
 		line += "\n - Dr. Axel Stoll, promovierter Naturwissenschaftler"
 		stoll := fmt.Sprintf("%s", line)
-		msg, _ := s.ChannelMessageSend(m.ChannelID, stoll)
-		s.MessageReactionAdd(msg.ChannelID, msg.ID, ":stoll:747387878916751421")
+		msg, err := s.ChannelMessageSend(m.ChannelID, stoll)
+		if err == nil {
+			s.MessageReactionAdd(msg.ChannelID, msg.ID, ":stoll:747387878916751421")
+		}
 	}
 }
 
