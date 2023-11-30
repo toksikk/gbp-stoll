@@ -1,4 +1,4 @@
-package main
+package gbpstoll
 
 import (
 	"fmt"
@@ -9,10 +9,10 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
+// PluginName is the name of the plugin
 var PluginName = "stoll"
-var PluginVersion = ""
-var PluginBuilddate = ""
 
+// Start the plugin
 func Start(discord *discordgo.Session) {
 	discord.AddHandler(onMessageCreate)
 	rand.Seed(time.Now().Unix())
